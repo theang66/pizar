@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-// import Card from './Card';
 import CardList from './CardList';
 
 const API_KEY = "a86fd5baa6696154f7d8e19d4c5d2689";
@@ -23,7 +22,8 @@ class App extends Component {
            isLoaded: true,
            items: json.results,
          })
-      });
+       }
+    );
   }
 
   render() {
@@ -33,23 +33,10 @@ class App extends Component {
     if(!isLoaded) {
       return <div>Loading...</div>
     }
-
     else {
       return (
-        // <div className="App">
-        //   <ul>
-        //     {items.map(item => (
-        //       <li key={item.id}>
-        //         Title: {item.title} | Overview: {item.overview}
-        //         <img alt="movie poster" className="tc" src ={`https://image.tmdb.org/t/p/w300${item.poster_path}`}/>
-        //       </li>
-        //     ))};
-        //   </ul>
-        // </div>
         <div className ="tc">
-
               <CardList movies={items}/>
-
         </div>
       );
     }
