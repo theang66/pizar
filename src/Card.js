@@ -6,7 +6,7 @@ const Card = ({ title, release_date, poster_path }) => {
       <img alt="movies" src ={`https://image.tmdb.org/t/p/w200${poster_path}`}/>
       <div>
       <h2>{title}</h2>
-      <p>{release_date}</p>
+      <p>{new Date(release_date).getFullYear()}</p>
       </div>
     </div>
   );

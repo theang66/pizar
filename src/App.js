@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import CardList from './CardList';
+import FrontPage from './FrontPage';
 
 const API_KEY = "a86fd5baa6696154f7d8e19d4c5d2689";
 
@@ -11,6 +12,7 @@ class App extends Component {
     this.state = {
         items: [],
         isLoaded: false,
+        isFrontPage: true,
     }
   }
 
@@ -26,20 +28,27 @@ class App extends Component {
     );
   }
 
+  onStartButton = () => {
+    this.setState({ isFrontPage: false });
+  }
+
   render() {
 
-    const { isLoaded, items } = this.state;
+    const { isLoaded, items, isFrontPage } = this.state;
 
-    if(!isLoaded) {
-      return <div>Loading...</div>
+    if(!isFrontPage) {
+      if(!isLoaded) {
+        return <div>Loading...</div>
+      }
+      else {
+        return (
+          <div className ="tc">
+                <CardList movies={items}/>
+          </div>
+        );
+      }
     }
-    else {
-      return (
-        <div className ="tc">
-              <CardList movies={items}/>
-        </div>
-      );
-    }
+    return <div><FrontPage onStartButton={this.onStartButton}/></div>;
   }
 }
 
