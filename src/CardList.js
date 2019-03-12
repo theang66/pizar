@@ -1,20 +1,10 @@
 import React from 'react';
 import Card from './Card';
+import { shuffle } from "lodash";
 
 const CardList = ({ movies }) => {
 
-  function shuffleArray(array) {
-    let i = array.length - 1;
-    for (; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      const temp = array[i];
-      array[i] = array[j];
-      array[j] = temp;
-    }
-    return array;
-}
-
-  const shuffledMovies = shuffleArray(movies);
+  const shuffledMovies = shuffle(movies);
 
   return (
     <div>
