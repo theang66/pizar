@@ -1,8 +1,8 @@
 import React from 'react';
-import Card from './Card';
+import MovieCard from './MovieCard';
 import { shuffle } from "lodash";
 
-const CardList = ({ movies }) => {
+const MovieList = ({ movies }) => {
 
   const shuffledMovies = shuffle(movies);
 
@@ -10,7 +10,7 @@ const CardList = ({ movies }) => {
     <div>
     {shuffledMovies.map((movie,i) => {
       return (
-      <Card
+      <MovieCard
       key={i}
       id={movie.id}
       title={movie.title}
@@ -22,4 +22,4 @@ const CardList = ({ movies }) => {
   );
 }
 
-export default CardList;
+export default MovieList;
