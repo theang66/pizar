@@ -12,6 +12,9 @@ class MainPage extends Component {
     this.state = {
       items: [],
       isLoaded: false,
+      doneBread: false,
+      doneSauce: false,
+      doneTopping: false,
     }
   }
 
@@ -27,30 +30,63 @@ class MainPage extends Component {
     );
   }
 
+  onFirstNextButton = () => {
+    this.setState({ doneBread: true });
+  }
+
+  onSecondNextButton = () => {
+    this.setState({ doneSauce: true });
+  }
+
+  onRandomizeButton = () => {
+    this.setState({ doneTopping: true });
+  }
+
   render() {
-    const { isLoaded, items } = this.state;
-    if(!isLoaded) {
-      return <div>Loading...</div>
-    }
-    else {
-      return (
-        <div className="tc">
-          <h1>Select your bread:</h1>
-          <OptionList type={bread}/>
-          <button
-          className="f3 fw6 link dim ph3 pv2 mb2 dib white bg-dark-blue"
-          >Next</button>
-          <OptionList type={sauce}/>
-          <button
-          className="f3 fw6 link dim ph3 pv2 mb2 dib white bg-dark-blue"
-          >Next</button>
-          <OptionList type={topping}/>
-          <button
-          className="f3 fw6 link dim ph3 pv2 mb2 dib white bg-dark-blue"
-          >Randomize!</button>
-          <MovieList movies={items}/>
+    const { isLoaded, items, doneBread, doneSauce, doneTopping } = this.state;
+
+    if(!doneBread&&!doneSauce&&!doneTopping) {
+      return <div className="tc">
+        <h1>Select your bread:</h1>
+        <OptionList type={bread}/>
+        <button
+        className="f3 fw6 link dim ph3 pv2 mb2 dib white bg-dark-blue"
+        onClick={this.onFirstNextButton}>Next</button>
         </div>
-      );
+    }
+
+    if(doneBread&&!doneSauce&&!doneTopping) {
+      return <div className="tc">
+        <h1>Select your sauce:</h1>
+        <OptionList type={sauce}/>
+        <button
+        className="f3 fw6 link dim ph3 pv2 mb2 dib white bg-dark-blue"
+        onClick={this.onSecondNextButton}>Next</button>
+        </div>
+    }
+
+    if(doneBread&&doneSauce&&!doneTopping) {
+      return <div className="tc">
+      <h1>Select your topping:</h1>
+      <OptionList type={topping}/>
+      <button
+      className="f3 fw6 link dim ph3 pv2 mb2 dib white bg-dark-blue"
+      onClick={this.onRandomizeButton}>Randomize!</button>
+      </div>
+    }
+
+    if(doneBread&&doneSauce&&doneTopping) {
+      if(!isLoaded) {
+        return <h2>Loading...</h2>
+      }
+      else {
+        return (
+          <div className="tc">
+            <h1>Some text goes here!</h1>
+            <MovieList movies={items}/>
+          </div>
+        );
+      }
     }
   }
 }
