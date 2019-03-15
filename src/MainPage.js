@@ -35,9 +35,19 @@ class MainPage extends Component {
     else {
       return (
         <div className="tc">
+          <h1>Select your bread:</h1>
           <OptionList type={bread}/>
+          <button
+          className="f3 fw6 link dim ph3 pv2 mb2 dib white bg-dark-blue"
+          >Next</button>
           <OptionList type={sauce}/>
+          <button
+          className="f3 fw6 link dim ph3 pv2 mb2 dib white bg-dark-blue"
+          >Next</button>
           <OptionList type={topping}/>
+          <button
+          className="f3 fw6 link dim ph3 pv2 mb2 dib white bg-dark-blue"
+          >Randomize!</button>
           <MovieList movies={items}/>
         </div>
       );
