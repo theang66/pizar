@@ -12,9 +12,7 @@ class MainPage extends Component {
     this.state = {
       items: [],
       isLoaded: false,
-      doneBread: false,
-      doneSauce: false,
-      doneTopping: false,
+      step: 0,
     }
   }
 
@@ -30,64 +28,59 @@ class MainPage extends Component {
     );
   }
 
-  onFirstNextButton = () => {
-    this.setState({ doneBread: true });
-  }
-
-  onSecondNextButton = () => {
-    this.setState({ doneSauce: true });
-  }
-
-  onRandomizeButton = () => {
-    this.setState({ doneTopping: true });
+  onNextButton = () => {
+    this.setState({ step: this.state.step+1 });
   }
 
   render() {
-    const { isLoaded, items, doneBread, doneSauce, doneTopping } = this.state;
+    const { isLoaded, items, step } = this.state;
 
-    if(!doneBread&&!doneSauce&&!doneTopping) {
-      return <div className="tc">
-        <h1>Select your bread:</h1>
-        <OptionList type={bread}/>
-        <button
-        className="f3 fw6 link dim ph3 pv2 mb2 dib white bg-dark-blue"
-        onClick={this.onFirstNextButton}>Next</button>
-        </div>
-    }
-
-    if(doneBread&&!doneSauce&&!doneTopping) {
-      return <div className="tc">
-        <h1>Select your sauce:</h1>
-        <OptionList type={sauce}/>
-        <button
-        className="f3 fw6 link dim ph3 pv2 mb2 dib white bg-dark-blue"
-        onClick={this.onSecondNextButton}>Next</button>
-        </div>
-    }
-
-    if(doneBread&&doneSauce&&!doneTopping) {
-      return <div className="tc">
-      <h1>Select your topping:</h1>
-      <OptionList type={topping}/>
-      <button
-      className="f3 fw6 link dim ph3 pv2 mb2 dib white bg-dark-blue"
-      onClick={this.onRandomizeButton}>Randomize!</button>
-      </div>
-    }
-
-    if(doneBread&&doneSauce&&doneTopping) {
-      if(!isLoaded) {
-        return <h2>Loading...</h2>
+    const pizzaSteps = [
+      {
+        ingredientName: "bread",
+        ingredientOptions: bread,
+      },
+      {
+        ingredientName: "sauce",
+        ingredientOptions: sauce,
+      },
+      {
+        ingredientName: "topping",
+        ingredientOptions: topping,
       }
-      else {
-        return (
-          <div className="tc">
-            <h1>Some text goes here!</h1>
-            <MovieList movies={items}/>
-          </div>
-        );
-      }
+    ];
+
+    var nextButtonLabel = "Next";
+    var currentStep = pizzaSteps[step];
+
+    if(step === pizzaSteps.length - 1) {
+      nextButtonLabel = "Randomize!";
     }
+    
+    if(currentStep) {
+      return (
+        <div className="tc">
+          <h1>Select your {currentStep.ingredientName}:</h1>
+          <OptionList type={currentStep.ingredientOptions}/>
+          <button
+            className="f3 fw6 link dim ph3 pv2 mb2 dib white bg-dark-blue"
+            onClick={this.onNextButton}>{nextButtonLabel}</button>
+        </div>
+      );
+    }
+
+    if(!isLoaded) {
+      return <h2>Loading...</h2>;
+    }
+    else {
+      return (
+        <div className="tc">
+          <h1>Some text goes here!</h1>
+          <MovieList movies={items}/>
+        </div>
+      );
+    }
+
   }
 }
 
