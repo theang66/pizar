@@ -15,11 +15,12 @@ class MainPage extends Component {
       isLoaded: false,
       step: 0,
       movieIndex: 0,
+      criterion: ' ',
     }
   }
 
   componentDidMount() {
-    fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=18&sort_by=popularity.desc`)
+    fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=16&sort_by=popularity.desc`)
       .then(res => res.json())
       .then(json => {
          this.setState({
