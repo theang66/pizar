@@ -13,6 +13,7 @@ class MainPage extends Component {
       items: [],
       isLoaded: false,
       step: 0,
+      movieIndex: 0,
     }
   }
 
@@ -29,11 +30,19 @@ class MainPage extends Component {
   }
 
   onNextButton = () => {
-    this.setState({ step: this.state.step+1 });
+    this.setState({ step: this.state.step + 1 });
+  }
+
+  onNextMovie = () => {
+    if(this.state.movieIndex === (this.state.items.length-1)) {
+      this.setState({ movieIndex: 0 });
+    } else {
+    this.setState({ movieIndex: this.state.movieIndex + 1 });
+    }
   }
 
   render() {
-    const { isLoaded, items, step } = this.state;
+    const { isLoaded, items, step, movieIndex } = this.state;
 
     const pizzaSteps = [
       {
@@ -50,20 +59,20 @@ class MainPage extends Component {
       }
     ];
 
-    var nextButtonLabel = "Next";
-    var currentStep = pizzaSteps[step];
+    let nextButtonLabel = "Next";
+    let currentStep = pizzaSteps[step];
 
     if(step === pizzaSteps.length - 1) {
       nextButtonLabel = "Randomize!";
     }
-    
+
     if(currentStep) {
       return (
         <div className="tc">
           <h1>Select your {currentStep.ingredientName}:</h1>
           <OptionList type={currentStep.ingredientOptions}/>
           <button
-            className="f3 fw6 link dim ph3 pv2 mb2 dib white bg-dark-blue"
+            className="f3 fw6 link ph3 pv2 mb2 dib white bg-dark-blue"
             onClick={this.onNextButton}>{nextButtonLabel}</button>
         </div>
       );
@@ -76,11 +85,13 @@ class MainPage extends Component {
       return (
         <div className="tc">
           <h1>Some text goes here!</h1>
-          <MovieList movies={items}/>
+          <button
+          className="f3 fw6 link ph3 pv2 mb2 dib white bg-dark-blue"
+          onClick={this.onNextMovie}>Next</button>
+          <MovieList movies={items} movieIndex={movieIndex}/>
         </div>
       );
     }
-
   }
 }
 
