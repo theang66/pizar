@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import MovieList from './MovieList';
 import OptionList from './OptionList';
 import { bread, sauce, topping } from './matchings';
+import { shuffle } from "lodash";
 
 const API_KEY = "a86fd5baa6696154f7d8e19d4c5d2689";
 
@@ -23,7 +24,7 @@ class MainPage extends Component {
       .then(json => {
          this.setState({
            isLoaded: true,
-           items: json.results,
+           items: shuffle(json.results),
          })
        }
     );

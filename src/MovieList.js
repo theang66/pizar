@@ -1,12 +1,10 @@
 import React from 'react';
 import MovieCard from './MovieCard';
-import { shuffle } from "lodash";
 
 const MovieList = ({ movies, movieIndex }) => {
 
-  const shuffledMovies = shuffle(movies);
   console.log(movies, movieIndex);
-  let movie = shuffledMovies[movieIndex];
+  let movie = movies[movieIndex];
 
   return (
     <div className="tc">
