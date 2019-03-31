@@ -15,7 +15,9 @@ class MainPage extends Component {
       isLoaded: false,
       step: 0,
       movieIndex: 0,
-      criterion: ' ',
+      crit1: null,
+      crit2: null,
+      crit3: null,
     }
   }
 
@@ -41,6 +43,10 @@ class MainPage extends Component {
     } else {
     this.setState({ movieIndex: this.state.movieIndex + 1 });
     }
+  }
+
+  handleClick = (attributes, text) => (e) => {
+    console.log(attributes, text);
   }
 
   render() {
@@ -72,7 +78,7 @@ class MainPage extends Component {
       return (
         <div className="tc">
           <h1>Select your {currentStep.ingredientName}:</h1>
-          <OptionList type={currentStep.ingredientOptions}/>
+          <OptionList type={currentStep.ingredientOptions} handleClick={this.handleClick}/>
           <button
             className="f3 fw6 link ph3 pv2 mb2 dib white bg-dark-blue"
             onClick={this.onNextButton}>{nextButtonLabel}</button>

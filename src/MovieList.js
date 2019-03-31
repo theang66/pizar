@@ -3,7 +3,6 @@ import MovieCard from './MovieCard';
 
 const MovieList = ({ movies, movieIndex }) => {
 
-  console.log(movies, movieIndex);
   let movie = movies[movieIndex];
 
   return (
