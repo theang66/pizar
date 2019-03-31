@@ -15,24 +15,33 @@ class MainPage extends Component {
       isLoaded: false,
       step: 0,
       movieIndex: 0,
-      criterion: ' ',
+      bread: shuffle(bread),
+      sauce: shuffle(sauce),
+      topping: shuffle(topping),
+      query: ' ',
+      queryStep: ' ',
     }
   }
 
-  componentDidMount() {
-    fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=16&sort_by=popularity.desc`)
-      .then(res => res.json())
-      .then(json => {
-         this.setState({
-           isLoaded: true,
-           items: shuffle(json.results),
-         })
-       }
-    );
-  }
-
   onNextButton = () => {
+    this.setState({ query: this.state.query + this.state.queryStep });
+    this.setState({ queryStep: ' ' });
     this.setState({ step: this.state.step + 1 });
+
+    if(this.state.step === 2) {
+      console.log(this.state.query);
+      fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&${this.state.query}`)
+        .then(res => res.json())
+        .then(json => {
+           this.setState({
+             isLoaded: true,
+             items: shuffle(json.results),
+           })
+         }
+      );
+    }
+    console.log('Query: ' + this.state.query);
+    console.log('QueryStep: ' + this.state.queryStep);
   }
 
   onNextMovie = () => {
@@ -43,8 +52,13 @@ class MainPage extends Component {
     }
   }
 
+  handleClick = (attributes, text) => (e) => {
+    this.setState({ queryStep: attributes });
+    console.log(attributes, text);
+  }
+
   render() {
-    const { isLoaded, items, step, movieIndex } = this.state;
+    const { isLoaded, items, step, movieIndex, bread, sauce, topping } = this.state;
 
     const pizzaSteps = [
       {
@@ -72,7 +86,7 @@ class MainPage extends Component {
       return (
         <div className="tc">
           <h1>Select your {currentStep.ingredientName}:</h1>
-          <OptionList type={currentStep.ingredientOptions}/>
+          <OptionList type={currentStep.ingredientOptions} handleClick={this.handleClick}/>
           <button
             className="f3 fw6 link ph3 pv2 mb2 dib white bg-dark-blue"
             onClick={this.onNextButton}>{nextButtonLabel}</button>
