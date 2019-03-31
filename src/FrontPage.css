@@ -1,0 +1,13 @@
+body{
+  background-image: url('./images/frontpagebg.jpg');
+  background-poition: center;
+  /* background-repeat: no-repeat; */
+  /* background-attachedment: fixed; */
+  background-size: cover;
+}
+
+div{
+  padding-top: 5%;
+  text-align: center;
+  color: white;
+}
