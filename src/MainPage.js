@@ -15,25 +15,26 @@ class MainPage extends Component {
       isLoaded: false,
       step: 0,
       movieIndex: 0,
-      crit1: null,
-      crit2: null,
-      crit3: null,
+      bread: shuffle(bread),
+      sauce: shuffle(sauce),
+      topping: shuffle(topping),
+      query: ' ',
     }
   }
 
-  componentDidMount() {
-    fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=16&sort_by=popularity.desc`)
-      .then(res => res.json())
-      .then(json => {
-         this.setState({
-           isLoaded: true,
-           items: shuffle(json.results),
-         })
-       }
-    );
-  }
-
   onNextButton = () => {
+    if(this.state.step === 2) {
+      console.log(this.state.query);
+      fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&${this.state.query}`)
+        .then(res => res.json())
+        .then(json => {
+           this.setState({
+             isLoaded: true,
+             items: shuffle(json.results),
+           })
+         }
+      );
+    }
     this.setState({ step: this.state.step + 1 });
   }
 
@@ -46,11 +47,12 @@ class MainPage extends Component {
   }
 
   handleClick = (attributes, text) => (e) => {
+    this.setState({ query: this.state.query + attributes });
     console.log(attributes, text);
   }
 
   render() {
-    const { isLoaded, items, step, movieIndex } = this.state;
+    const { isLoaded, items, step, movieIndex, bread, sauce, topping } = this.state;
 
     const pizzaSteps = [
       {
