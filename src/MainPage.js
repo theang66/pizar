@@ -19,10 +19,15 @@ class MainPage extends Component {
       sauce: shuffle(sauce),
       topping: shuffle(topping),
       query: ' ',
+      queryStep: ' ',
     }
   }
 
   onNextButton = () => {
+    this.setState({ query: this.state.query + this.state.queryStep });
+    this.setState({ queryStep: ' ' });
+    this.setState({ step: this.state.step + 1 });
+
     if(this.state.step === 2) {
       console.log(this.state.query);
       fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&${this.state.query}`)
@@ -35,7 +40,8 @@ class MainPage extends Component {
          }
       );
     }
-    this.setState({ step: this.state.step + 1 });
+    console.log('Query: ' + this.state.query);
+    console.log('QueryStep: ' + this.state.queryStep);
   }
 
   onNextMovie = () => {
@@ -47,7 +53,7 @@ class MainPage extends Component {
   }
 
   handleClick = (attributes, text) => (e) => {
-    this.setState({ query: this.state.query + attributes });
+    this.setState({ queryStep: attributes });
     console.log(attributes, text);
   }
 
