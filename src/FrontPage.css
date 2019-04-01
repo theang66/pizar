@@ -1,9 +1,8 @@
 body{
-  background-image: url('./images/frontpagebg.jpg');
-  background-poition: center;
-  /* background-repeat: no-repeat; */
-  /* background-attachedment: fixed; */
+  background-image: url('./images/mainpagebg.jpg');
+  background-poition: left bottom;
   background-size: cover;
+  position: relative;
 }
 
 div{

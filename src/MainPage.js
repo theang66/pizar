@@ -62,15 +62,15 @@ class MainPage extends Component {
 
     const pizzaSteps = [
       {
-        ingredientName: "bread",
+        ingredientName: "BREAD",
         ingredientOptions: bread,
       },
       {
-        ingredientName: "sauce",
+        ingredientName: "SAUCE",
         ingredientOptions: sauce,
       },
       {
-        ingredientName: "topping",
+        ingredientName: "TOPPING",
         ingredientOptions: topping,
       }
     ];
@@ -85,10 +85,10 @@ class MainPage extends Component {
     if(currentStep) {
       return (
         <div className="tc">
-          <h1>Select your {currentStep.ingredientName}:</h1>
+          <h1>SELECT YOUR {currentStep.ingredientName}</h1>
           <OptionList type={currentStep.ingredientOptions} handleClick={this.handleClick}/>
           <button
-            className="f3 fw6 link ph3 pv2 mb2 dib white bg-dark-blue"
+            className="f3 fw6 link ph3 pv2 mb2 dib black bg-dark-red"
             onClick={this.onNextButton}>{nextButtonLabel}</button>
         </div>
       );
