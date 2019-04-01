@@ -1,13 +1,17 @@
-body{
-  background-image: url('./images/frontpagebg.jpg');
-  background-poition: center;
-  /* background-repeat: no-repeat; */
-  /* background-attachedment: fixed; */
+@font-face {
+  font-family:'JUST FOR FUN';
+  font-style: normal;
+  font-weight: normal;
+  src: local('JUST FOR FUN'), url('./JustForFun.ttf') format('truetype');
+}
+
+body {
+  background-image: url('./background/frontpagebg.jpg');
   background-size: cover;
 }
 
-div{
-  padding-top: 5%;
+div {
   text-align: center;
   color: white;
+  font-family: 'JUST FOR FUN';
 }

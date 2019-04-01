@@ -4,14 +4,14 @@ import styles from './FrontPage.css';
 const FrontPage = ({ onStartButton }) => {
   return (
     <div className={styles.FrontPage}>
-      <h1 class="f-headline lh-solid">Welcome to Pizar!</h1>
+      <h1 className="f-headline lh-solid">Welcome to Pizar!</h1>
       <h2
-      className="tc f2 fw4">Tell us your favourite pizzar and we'll tell you what movie to watch today!</h2>
-      <h3
-      className="tc f5 fw4">They might not seem related but they really are.</h3>
+      className="tc f2 fw4">Tell us your favorite pizza and we'll tell you what movie to watch!</h2>
+      <h2
+      className="tc f3 fw4">They might not seem related but they really are.</h2>
       <button
-      className="tc f3 fw4 link ph3 pv2 mb2 dib black bg-dark-red"
-      onClick={onStartButton}>BUILD YOUR PIZAR</button>
+      className="tc f3 fw4 link ph3 pv2 mb2 grow dib black bg-dark-red"
+      onClick={onStartButton}>BUILD YOUR PIZZA</button>
     </div>
   )
 }
