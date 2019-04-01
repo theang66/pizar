@@ -24,12 +24,17 @@ class MainPage extends Component {
   }
 
   onNextButton = () => {
-    this.setState({ query: this.state.query + this.state.queryStep });
-    this.setState({ queryStep: ' ' });
-    this.setState({ step: this.state.step + 1 });
+    this.setState((state) => {
+      return {
+        query: state.query + state.queryStep,
+        queryStep: ' ',
+        step: state.step + 1,
+      }
+    }, () => {
+      console.log(this.state.query);
+    })
 
     if(this.state.step === 2) {
-      console.log(this.state.query);
       fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&${this.state.query}`)
         .then(res => res.json())
         .then(json => {
@@ -40,8 +45,6 @@ class MainPage extends Component {
          }
       );
     }
-    console.log('Query: ' + this.state.query);
-    console.log('QueryStep: ' + this.state.queryStep);
   }
 
   onNextMovie = () => {
@@ -88,7 +91,7 @@ class MainPage extends Component {
           <h1>SELECT YOUR {currentStep.ingredientName}</h1>
           <OptionList type={currentStep.ingredientOptions} handleClick={this.handleClick}/>
           <button
-            className="f3 fw6 link ph3 pv2 mb2 dib black bg-dark-red"
+            className="f3 fw6 grow link ph3 pv2 mb2 dib white bg-dark-blue"
             onClick={this.onNextButton}>{nextButtonLabel}</button>
         </div>
       );
@@ -96,15 +99,20 @@ class MainPage extends Component {
 
     if(!isLoaded) {
       return <h2>Loading...</h2>;
-    }
-    else {
+    } else if(items.length === 0) {
       return (
         <div className="tc">
-          <h1>Some text goes here!</h1>
-          <button
-          className="f3 fw6 link ph3 pv2 mb2 dib white bg-dark-blue"
-          onClick={this.onNextMovie}>Next</button>
+          <h1>We could not find any :(</h1>
+        </div>
+      )
+    } else {
+      return (
+        <div className="tc">
+          <h1>We found you these movies!</h1>
           <MovieList movies={items} movieIndex={movieIndex}/>
+          <button
+          className="f3 fw6 grow link ph3 pv2 mb2 dib white bg-dark-blue"
+          onClick={this.onNextMovie}>Next</button>
         </div>
       );
     }
