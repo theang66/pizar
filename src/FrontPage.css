@@ -6,7 +6,7 @@
 }
 
 body {
-  background-image: url('./background/frontpagebg.jpg');
+  background-image: url('./background/mainpagebg.jpg');
   background-size: cover;
   position: relative;
 }
