@@ -1,8 +1,8 @@
 @font-face {
-  font-family:'JUST FOR FUN';
+  font-family:'LATO MEDIUM';
   font-style: normal;
   font-weight: normal;
-  src: local('JUST FOR FUN'), url('./JustForFun.ttf') format('truetype');
+  src: local('LATO MEDIUM'), url('./Lato-Medium.ttf') format('truetype');
 }
 
 body {
@@ -14,5 +14,5 @@ body {
 div {
   text-align: center;
   color: white;
-  font-family: 'JUST FOR FUN';
+  font-family: 'LATO MEDIUM';
 }
