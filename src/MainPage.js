@@ -91,7 +91,7 @@ class MainPage extends Component {
           <h1>SELECT YOUR {currentStep.ingredientName}</h1>
           <OptionList type={currentStep.ingredientOptions} handleClick={this.handleClick}/>
           <button
-            className="f3 fw6 grow link ph3 pv2 mb2 dib white bg-dark-blue"
+            className="f3 fw6 br-pill grow link ph3 pv2 mb2 dib white bg-dark-red"
             onClick={this.onNextButton}>{nextButtonLabel}</button>
         </div>
       );
