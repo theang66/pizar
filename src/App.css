@@ -31,3 +31,22 @@
     transform: rotate(360deg);
   }
 }
+
+@font-face {
+  font-family:'LATO MEDIUM';
+  font-style: normal;
+  font-weight: normal;
+  src: local('LATO MEDIUM'), url('./Lato-Medium.ttf') format('truetype');
+}
+
+body {
+  background-image: url('./background/mainpagebg.jpg');
+  background-size: cover;
+  position: relative;
+}
+
+div {
+  text-align: center;
+  color: white;
+  font-family: 'LATO MEDIUM';
+}
