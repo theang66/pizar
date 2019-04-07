@@ -40,7 +40,7 @@
 }
 
 body {
-  background-image: url('./background/mainpagebg.jpg');
+  background-image: url('./pics/mainpagebg.jpg');
   background-size: cover;
   position: relative;
 }
@@ -49,4 +49,14 @@ div {
   text-align: center;
   color: white;
   font-family: 'LATO MEDIUM';
+}
+
+.row {
+  flex-direction: row;
+  flex: 2;
+}
+
+.column {
+  flex-direction: column;
+  flex: 2;
 }

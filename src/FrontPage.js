@@ -9,7 +9,7 @@ const FrontPage = ({ onStartButton }) => {
       <h2
       className="tc f3 fw4">They might not seem related but they really are.</h2>
       <img className="tc grow"
-      alt="options" src={require(`./background/roundpizza.png`)}
+      alt="options" src={require(`./pics/roundpizza.png`)}
       width="300px"
       onClick={onStartButton}/>
     </div>
