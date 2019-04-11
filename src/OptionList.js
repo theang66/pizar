@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import OptionCard from './OptionCard';
 
+// Display options in 2x2 grid
 class OptionList extends Component {
 
   render() {
     const shuffledOptions = this.props.type.slice(0,4);
     return(
-      <div class='row'>
-        <div class='column'>
+      <div className='optionRow'>
+        <div className='optionColumn'>
           <div>
             <OptionCard
             key="0"
@@ -23,7 +24,7 @@ class OptionList extends Component {
             />
           </div>
         </div>
-        <div class='column'>
+        <div className='optionColumn'>
           <div>
             <OptionCard
             key="2"

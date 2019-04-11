@@ -1,3 +1,5 @@
+// Database for toppings' attributes
+
 export const bread = [
 { id: '1',
   name: 'New York/New Jersey',

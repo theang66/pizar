@@ -11,11 +11,11 @@ class MainPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: [],
+      items: [], // To store the returned list of movies
       isLoaded: false,
       step: 0,
       movieIndex: 0,
-      bread: shuffle(bread),
+      bread: shuffle(bread), // Shuffle the options
       sauce: shuffle(sauce),
       topping: shuffle(topping),
       query: ' ',
@@ -24,6 +24,7 @@ class MainPage extends Component {
   }
 
   onNextButton = () => {
+    // Updates the state every time the user clicks Next
     this.setState((state) => {
       return {
         query: state.query + state.queryStep,
@@ -34,19 +35,21 @@ class MainPage extends Component {
       console.log(this.state.query);
     })
 
+    // If it is the last step, send a request to the API
     if(this.state.step === 2) {
       fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&${this.state.query}`)
         .then(res => res.json())
         .then(json => {
            this.setState({
              isLoaded: true,
-             items: shuffle(json.results),
+             items: shuffle(json.results), // Shuffle the movie results
            })
          }
       );
     }
   }
 
+  // Continues to next movie when clicked
   onNextMovie = () => {
     if(this.state.movieIndex === (this.state.items.length-1)) {
       this.setState({ movieIndex: 0 });
@@ -55,9 +58,9 @@ class MainPage extends Component {
     }
   }
 
+  // Retrieves the option the user chose to add to query
   handleClick = (attributes, text) => (e) => {
     this.setState({ queryStep: attributes });
-    console.log(attributes, text);
   }
 
   render() {
@@ -81,10 +84,12 @@ class MainPage extends Component {
     let nextButtonLabel = "Next";
     let currentStep = pizzaSteps[step];
 
+    // At the last step, say Randomize instead of Next
     if(step === pizzaSteps.length - 1) {
       nextButtonLabel = "Randomize!";
     }
 
+    // At each step, display instruction and options
     if(currentStep) {
       return (
         <div className="tc">
@@ -97,21 +102,21 @@ class MainPage extends Component {
       );
     }
 
-    if(!isLoaded) {
+    if(!isLoaded) { // Loading page while waiting for results
       return <h2>Loading...</h2>;
-    } else if(items.length === 0) {
+    } else if(items.length === 0) { // Handles when there are no results
       return (
         <div className="tc">
           <h1>We could not find any :(</h1>
         </div>
       )
-    } else {
+    } else { // Results page, show movies one by one
       return (
         <div className="tc">
           <h1>We found you these movies!</h1>
           <MovieList movies={items} movieIndex={movieIndex}/>
           <button
-          className="f3 fw6 grow link ph3 pv2 mb2 dib white bg-dark-blue"
+          className="f3 br-pill fw6 grow link ph3 pv2 mb2 dib white bg-dark-red"
           onClick={this.onNextMovie}>Next</button>
         </div>
       );

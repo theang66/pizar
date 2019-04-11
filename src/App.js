@@ -8,7 +8,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        isFrontPage: true,
+      isFrontPage: true,
     }
   }
 
@@ -17,6 +17,7 @@ class App extends Component {
   }
 
   render() {
+    // Navigates to main page when button is clicked
     const { isFrontPage } = this.state;
     if(!isFrontPage) {
       return <div><MainPage /></div>;
