@@ -10,7 +10,12 @@ class MainPage extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
+    this.state = this.randomStartState();
+  }
+
+  // Generates a state and random options every time the quiz resets
+  randomStartState() {
+    return {
       items: [], // To store the returned list of movies
       isLoaded: false,
       step: 0,
@@ -20,7 +25,7 @@ class MainPage extends Component {
       topping: shuffle(topping),
       query: ' ',
       queryStep: ' ',
-    }
+    };
   }
 
   onNextButton = () => {
@@ -40,11 +45,12 @@ class MainPage extends Component {
       fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&${this.state.query}`)
         .then(res => res.json())
         .then(json => {
-           this.setState({
+          console.log(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&${this.state.query}`);
+          this.setState({
              isLoaded: true,
              items: shuffle(json.results), // Shuffle the movie results
-           })
-         }
+          })
+        }
       );
     }
   }
@@ -63,22 +69,22 @@ class MainPage extends Component {
     this.setState({ queryStep: attributes });
   }
 
+  // Restarts the quiz
+  onRestart = () => {
+    this.setState(this.randomStartState());
+  }
+
   render() {
     const { isLoaded, items, step, movieIndex, bread, sauce, topping } = this.state;
 
+    // One question/step for each topping
     const pizzaSteps = [
-      {
-        ingredientName: "BREAD",
-        ingredientOptions: bread,
-      },
-      {
-        ingredientName: "SAUCE",
-        ingredientOptions: sauce,
-      },
-      {
-        ingredientName: "TOPPING",
-        ingredientOptions: topping,
-      }
+      { ingredientName: "BREAD",
+        ingredientOptions: bread, },
+      { ingredientName: "SAUCE",
+        ingredientOptions: sauce, },
+      { ingredientName: "TOPPING",
+        ingredientOptions: topping, }
     ];
 
     let nextButtonLabel = "Next";
@@ -108,6 +114,9 @@ class MainPage extends Component {
       return (
         <div className="tc">
           <h1>We could not find any :(</h1>
+          <button
+          className="f3 br-pill fw6 grow link ph3 pv2 mb2 dib white bg-dark-red"
+          onClick={this.onRestart}>Restart</button>
         </div>
       )
     } else { // Results page, show movies one by one
@@ -118,6 +127,9 @@ class MainPage extends Component {
           <button
           className="f3 br-pill fw6 grow link ph3 pv2 mb2 dib white bg-dark-red"
           onClick={this.onNextMovie}>Next</button>
+          <button
+          className="f3 br-pill fw6 grow link ph3 pv2 mb2 dib white bg-dark-red"
+          onClick={this.onRestart}>Restart</button>
         </div>
       );
     }

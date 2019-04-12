@@ -1,5 +1,5 @@
 # Pizar
-Pizar is a web application that finds random movies based on the user's pizza preferences. This app was built using the [React](https://reactjs.org/) framework and [TMDb API](https://developers.themoviedb.org/3/getting-started/introduction).
+Pizar is a web application that finds random movies based on the user's pizza preferences. This app was built using the [React framework](https://reactjs.org/) and [TMDb API](https://developers.themoviedb.org/3/getting-started/introduction).
 
 ## Available Scripts
 
@@ -25,7 +25,7 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-# Contributors
+## Contributors
 
 Anh Nguyen <br>
 Sivhuo Prak <br>
