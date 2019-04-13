@@ -51,12 +51,12 @@ div {
   font-family: 'LATO MEDIUM';
 }
 
-.row {
+.optionRow {
   flex-direction: row;
   flex: 2;
 }
 
-.column {
+.optionColumn {
   flex-direction: column;
   flex: 2;
 }
