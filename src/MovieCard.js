@@ -11,7 +11,7 @@ const MovieCard = ({ title, release_date, poster_path, overview, vote_average })
       </Grid>
       <Grid item className="tl" xs={12} sm={12} lg={4} xl={3}>
         <h2 className="f2">{title}</h2>
-        <p className="f3">{new Date(release_date).getFullYear()} | {vote_average}</p>
+        <p className="f3">Year: {new Date(release_date).getFullYear()} | Rating: {vote_average}/10</p>
         <p className="f4">{overview}</p>
       </Grid>
     </Grid>

@@ -6,7 +6,7 @@ import Grid from '@material-ui/core/Grid';
 class OptionList extends Component {
 
   render() {
-    const shuffledOptions = this.props.type.slice(0,4);
+    const shuffledOptions = this.props.type.slice(0, 4);
     return(
       <Grid container spacing={0} style={{padding: 0}}
       alignItems="center"
@@ -14,7 +14,7 @@ class OptionList extends Component {
         { shuffledOptions.map(option => (
           <Grid key={option.id} item xs={6} sm={6} lg={6} xl={6}>
             <OptionCard
-            key={option.id} 
+            key={option.id}
             name={option.name}
             image={option.image}
             onClick={this.props.handleClick(option.attributes, option.text) }

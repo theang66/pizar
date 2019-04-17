@@ -48,7 +48,7 @@ class MainPage extends Component {
           console.log(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&${this.state.query}`);
           this.setState({
              isLoaded: true,
-             items: shuffle(json.results), // Shuffle the movie results
+             items: shuffle(json.results).slice(0, 4), // Shuffle the movie results, get the first 4
           })
         }
       );
@@ -126,7 +126,7 @@ class MainPage extends Component {
           <MovieList movies={items} movieIndex={movieIndex}/>
           <button
           className="f3 br-pill fw6 grow link ph3 pv2 mb2 dib white bg-dark-red"
-          onClick={this.onNextMovie}>Next</button>
+          onClick={this.onNextMovie}>Next result</button>
           <button
           className="f3 br-pill fw6 grow link ph3 pv2 mb2 dib white bg-dark-red"
           onClick={this.onRestart}>Restart</button>
