@@ -14,7 +14,7 @@ const MovieList = ({ movies, movieIndex }) => {
       release_date={movie.release_date}
       poster_path={movie.poster_path}
       overview={movie.overview}
-      vote_average={movie.vote_average}/>
+      vote_average={movie.vote_average} />
     </div>
   );
 }

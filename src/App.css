@@ -50,13 +50,3 @@ div {
   color: white;
   font-family: 'LATO MEDIUM';
 }
-
-.optionRow {
-  flex-direction: row;
-  flex: 2;
-}
-
-.optionColumn {
-  flex-direction: column;
-  flex: 2;
-}

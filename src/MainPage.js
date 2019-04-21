@@ -3,6 +3,7 @@ import MovieList from './MovieList';
 import OptionList from './OptionList';
 import { bread, sauce, topping } from './matchings';
 import { shuffle } from "lodash";
+import Grid from '@material-ui/core/Grid';
 
 const API_KEY = "a86fd5baa6696154f7d8e19d4c5d2689";
 
@@ -58,9 +59,17 @@ class MainPage extends Component {
   // Continues to next movie when clicked
   onNextMovie = () => {
     if(this.state.movieIndex === (this.state.items.length-1)) {
-      this.setState({ movieIndex: 0 });
+      // Does not do anything if it is the last movie
     } else {
     this.setState({ movieIndex: this.state.movieIndex + 1 });
+    }
+  }
+
+  onPrevMovie = () => {
+    if(this.state.movieIndex === 0) {
+      // Does not do anything if it is the first movie
+    } else {
+    this.setState({ movieIndex: this.state.movieIndex - 1 });
     }
   }
 
@@ -124,12 +133,25 @@ class MainPage extends Component {
         <div className="tc">
           <h1>We found you these movies!</h1>
           <MovieList movies={items} movieIndex={movieIndex}/>
-          <button
-          className="f3 br-pill fw6 grow link ph3 pv2 mb2 dib white bg-dark-red"
-          onClick={this.onNextMovie}>Next result</button>
-          <button
-          className="f3 br-pill fw6 grow link ph3 pv2 mb2 dib white bg-dark-red"
-          onClick={this.onRestart}>Restart</button>
+          <Grid container spacing={0} style={{padding: 0}}
+          alignItems="center"
+          justify="center">
+              <Grid item xs={6} sm={6} lg={6} xl={6}>
+                <button
+                className="tc f3 br-pill fw6 grow link ph3 pv2 mb2 dib white bg-dark-red"
+                onClick={this.onPrevMovie}>Previous result</button>
+              </Grid>
+              <Grid item xs={6} sm={6} lg={6} xl={6}>
+                <button
+                className="tc f3 br-pill fw6 grow link ph3 pv2 mb2 dib white bg-dark-red"
+                onClick={this.onNextMovie}>Next result</button>
+              </Grid>
+              <Grid item xs={6} sm={6} lg={6} xl={6}>
+                <button
+                className="tr f3 br-pill fw6 grow link ph3 pv2 mb2 dib white bg-dark-red"
+                onClick={this.onRestart}>Restart</button>
+              </Grid>
+          </Grid>
         </div>
       );
     }
