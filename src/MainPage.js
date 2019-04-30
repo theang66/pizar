@@ -145,14 +145,26 @@ class MainPage extends Component {
           alignItems="center"
           justify="center">
               <Grid item xs={6} sm={6} lg={6} xl={6}>
+                {this.state.movieIndex === 0? (
                 <button
-                className="tc f3 br-pill fw6 grow link ph3 pv2 mb2 dib white bg-dark-red"
+                className="tc f3 br-pill fw6 grow link ph3 pv2 mb2 dib white bg-dark-red disabled"
                 onClick={this.onPrevMovie}>Previous result</button>
+                ) : (
+                <button
+                className="tc f3 br-pill fw6 grow link ph3 pv2 mb2 dib white bg-dark-red prevButton"
+                onClick={this.onPrevMovie}><span>Previous result</span></button>
+                )}
               </Grid>
               <Grid item xs={6} sm={6} lg={6} xl={6}>
+                {this.state.movieIndex === this.state.items.length-1 ? (
                 <button
-                className="tc f3 br-pill fw6 grow link ph3 pv2 mb2 dib white bg-dark-red"
+                className="tc f3 br-pill fw6 grow link ph3 pv2 mb2 dib white bg-dark-red disabled"
                 onClick={this.onNextMovie}>Next result</button>
+              ) : (
+                <button
+                className="tc f3 br-pill fw6 grow link ph3 pv2 mb2 dib white bg-dark-red nextButton"
+                onClick={this.onNextMovie}><span>Next result</span></button>
+                )}
               </Grid>
               <Grid item xs={6} sm={6} lg={6} xl={6}>
                 <button
