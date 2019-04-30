@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import MovieList from './MovieList';
 import OptionList from './OptionList';
-import { bread, sauce, topping } from './matchings';
+import { bread, sauce, topping, noChoice } from './matchings';
 import { shuffle } from "lodash";
 import Grid from '@material-ui/core/Grid';
 
@@ -26,6 +26,8 @@ class MainPage extends Component {
       topping: shuffle(topping),
       query: ' ',
       queryStep: ' ',
+      rationale: ' ',
+      rationaleStep: ' ',
     };
   }
 
@@ -36,9 +38,12 @@ class MainPage extends Component {
         query: state.query + state.queryStep,
         queryStep: ' ',
         step: state.step + 1,
+        rationale: state.rationale + " " + state.rationaleStep,
+        rationaleStep: ' ',
       }
     }, () => {
       console.log(this.state.query);
+      console.log(this.state.rationale);
     })
 
     // If it is the last step, send a request to the API
@@ -75,7 +80,10 @@ class MainPage extends Component {
 
   // Retrieves the option the user chose to add to query
   handleClick = (attributes, text) => (e) => {
-    this.setState({ queryStep: attributes });
+    this.setState({
+      queryStep: attributes,
+      rationaleStep: text
+    });
   }
 
   // Restarts the quiz
@@ -84,7 +92,7 @@ class MainPage extends Component {
   }
 
   render() {
-    const { isLoaded, items, step, movieIndex, bread, sauce, topping } = this.state;
+    const { isLoaded, items, step, movieIndex, bread, sauce, topping, rationale } = this.state;
 
     // One question/step for each topping
     const pizzaSteps = [
@@ -131,7 +139,7 @@ class MainPage extends Component {
     } else { // Results page, show movies one by one
       return (
         <div className="tc">
-          <h1>We found you these movies!</h1>
+          <h3>{rationale}</h3>
           <MovieList movies={items} movieIndex={movieIndex}/>
           <Grid container spacing={0} style={{padding: 0}}
           alignItems="center"
