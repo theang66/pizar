@@ -100,7 +100,7 @@ export const sauce = [
   name: 'Tapenade',
   image: 'sauce8.jpg',
   text: 'Not a conventional sauce I see. How about unconventional movies?',
-  attributes: '&sort_by=vote_average.asc',
+  attributes: '&vote_average.gte=5&vote_average.lte=8',
 }
 ]
 

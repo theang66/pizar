@@ -43,23 +43,20 @@ class MainPage extends Component {
       }
     }, () => {
       console.log(this.state.query);
-      console.log(this.state.rationale);
-    })
 
-    // If it is the last step, send a request to the API
-    if(this.state.step === 2) {
-      fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}${this.state.query}`)
-        .then(res => res.json())
-        .then(json => {
-          console.log(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}${this.state.query}`);
-          this.setState({
-             isLoaded: true,
-             items: shuffle(json.results).slice(0, 4), // Shuffle the movie results, get the first 4
-          })
-          console.log(this.state.items);
-        }
-      );
-    }
+      // If it is the last step, send a request to the API
+      if(this.state.step === 3) {
+        fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}${this.state.query}`)
+          .then(res => res.json())
+          .then(json => {
+            this.setState({
+               isLoaded: true,
+               items: shuffle(json.results).slice(0, 4), // Shuffle the movie results, get the first 4
+            })
+          }
+        );
+      }
+    })
   }
 
   // Continues to next movie when clicked
