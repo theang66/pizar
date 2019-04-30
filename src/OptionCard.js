@@ -4,11 +4,13 @@ import React from 'react';
 const OptionCard = ({ onClick, image, name, attributes, text }) => {
 
   return (
-    <div onClick={onClick}
+    <div class="container" onClick={onClick}
       attributes={attributes} text={text}
-      className="tc f3 black bg-animate hover-bg-dark-red bg-near-white dib br1 pa1 ma1 grow bw2 shadow-5">
-      <img alt="options" src={require(`./pics/${image}`)} height="180px" width="350px"/>
-      <p>{name}</p>
+      className="tc f4 bg-animate hover-bg-dark-red bg-near-white dib br1 pa1 ma1 grow bw2 shadow-5">
+      <img alt="options" src={require(`./pics/${image}`)} height="250px" width="350px"/>
+      <div class="text-block">
+        <p>{name}</p>
+      </div>
     </div>
   );
 }
