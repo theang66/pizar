@@ -24,10 +24,10 @@ class MainPage extends Component {
       bread: shuffle(bread), // Shuffle the options
       sauce: shuffle(sauce),
       topping: shuffle(topping),
-      query: ' ',
-      queryStep: ' ',
-      rationale: ' ',
-      rationaleStep: ' ',
+      query: '',
+      queryStep: '',
+      rationale: '',
+      rationaleStep: '',
     };
   }
 
@@ -36,10 +36,10 @@ class MainPage extends Component {
     this.setState((state) => {
       return {
         query: state.query + state.queryStep,
-        queryStep: ' ',
+        queryStep: '',
         step: state.step + 1,
         rationale: state.rationale + " " + state.rationaleStep,
-        rationaleStep: ' ',
+        rationaleStep: '',
       }
     }, () => {
       console.log(this.state.query);
@@ -48,14 +48,15 @@ class MainPage extends Component {
 
     // If it is the last step, send a request to the API
     if(this.state.step === 2) {
-      fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&${this.state.query}`)
+      fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}${this.state.query}`)
         .then(res => res.json())
         .then(json => {
-          console.log(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&${this.state.query}`);
+          console.log(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}${this.state.query}`);
           this.setState({
              isLoaded: true,
              items: shuffle(json.results).slice(0, 4), // Shuffle the movie results, get the first 4
           })
+          console.log(this.state.items);
         }
       );
     }
