@@ -50,3 +50,71 @@ div {
   color: white;
   font-family: 'LATO MEDIUM';
 }
+
+.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.nextButton span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.nextButton span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.nextButton:hover span {
+  padding-right: 25px;
+}
+
+.nextButton:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.prevButton span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.prevButton span:after {
+  content: '\00ab';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: -20px;
+  transition: 0.5s;
+}
+
+.prevButton:hover span {
+  padding-left: 25px;
+}
+
+.prevButton:hover span:after {
+  opacity: 1;
+  left: 0;
+}
+
+.container {
+  position: relative;
+}
+.text-block {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background-color: rgb(0, 0, 0, 0.8);
+  color: rgb(255, 0, 0);
+  padding-left: 20px;
+  padding-right: 20px;
+}
