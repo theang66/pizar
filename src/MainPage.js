@@ -124,7 +124,8 @@ class MainPage extends Component {
           <h1>SELECT YOUR {currentStep.ingredientName}</h1>
           <OptionList chosen={chosen} type={currentStep.ingredientOptions} handleClick={this.handleClick}/>
           <button
-            className="f3 fw6 br-pill grow link ph3 pv2 mb2 dib white bg-dark-red"
+            className="f3 fw6 br-pill grow ph3 pv2 mb2 dib white bg-dark-red"
+            style={{outline:"none"}}
             onClick={this.onNextButton}>{nextButtonLabel}</button>
         </div>
       );
@@ -135,18 +136,19 @@ class MainPage extends Component {
     } else if(items.length === 0) { // Handles when there are no results
       return (
         <div className="tc">
-          <h1>We could not find any movies :( Try again?</h1>
+          <h1>Oops! Your pizza seems odd. We could not find any movies :( Try again?</h1>
           <button
-          className="f3 br-pill fw6 grow link ph3 pv2 mb2 dib white bg-dark-red"
+          className="f3 br-pill fw6 grow ph3 pv2 mb2 dib white bg-dark-red"
+          style={{outline:"none"}}
           onClick={this.onRestart}>Restart</button>
         </div>
       )
     } else { // Results page, show movies one by one
       return (
         <div className="tc">
-          <Grid container alignItems="center" justify="center" className="bg-dark-red">
+          <Grid container alignItems="center" justify="center" className="rationalebg">
             <Grid item xs={8}>
-              <h2>{rationale}</h2>
+              <h2 className="white fw6 f4">{rationale}</h2>
             </Grid>
           </Grid>
           <MovieList movies={items} movieIndex={movieIndex}/>
@@ -154,30 +156,35 @@ class MainPage extends Component {
           alignItems="center"
           justify="center">
               <Grid item xs={6} sm={6} lg={6} xl={6}>
-                {this.state.movieIndex === 0? (
+                {this.state.movieIndex === 0 ? (
                 <button
-                className="tc f3 br-pill fw6 grow link ph3 pv2 mb2 dib white bg-dark-red disabled"
-                onClick={this.onPrevMovie}>Previous result</button>
+                className="tc f3 br-pill fw6 grow ph3 pv2 mb2 dib white bg-dark-red disabled"
+                style={{outline:"none"}}
+                onClick={this.onPrevMovie}>Previous Result</button>
                 ) : (
                 <button
-                className="tc f3 br-pill fw6 grow link ph3 pv2 mb2 dib white bg-dark-red prevButton"
-                onClick={this.onPrevMovie}><span>Previous result</span></button>
+                className="tc f3 br-pill fw6 grow ph3 pv2 mb2 dib white bg-dark-red prevButton"
+                style={{outline:"none"}}
+                onClick={this.onPrevMovie}><span>Previous Result</span></button>
                 )}
               </Grid>
               <Grid item xs={6} sm={6} lg={6} xl={6}>
-                {this.state.movieIndex === this.state.items.length-1 ? (
+                {this.state.movieIndex === this.state.items.length - 1 ? (
                 <button
-                className="tc f3 br-pill fw6 grow link ph3 pv2 mb2 dib white bg-dark-red disabled"
-                onClick={this.onNextMovie}>Next result</button>
+                className="tc f3 br-pill fw6 grow ph3 pv2 mb2 dib white bg-dark-red disabled"
+                style={{outline:"none"}}
+                onClick={this.onNextMovie}>Next Result</button>
               ) : (
                 <button
-                className="tc f3 br-pill fw6 grow link ph3 pv2 mb2 dib white bg-dark-red nextButton"
-                onClick={this.onNextMovie}><span>Next result</span></button>
+                className="tc f3 br-pill fw6 grow ph3 pv2 mb2 dib white bg-dark-red nextButton"
+                style={{outline:"none"}}
+                onClick={this.onNextMovie}><span>Next Result</span></button>
                 )}
               </Grid>
               <Grid item xs={6} sm={6} lg={6} xl={6}>
                 <button
-                className="tr f3 br-pill fw6 grow link ph3 pv2 mb2 dib white bg-dark-red"
+                className="tr f3 br-pill fw6 grow ph3 pv2 mb2 dib white bg-dark-red"
+                style={{outline:"none"}}
                 onClick={this.onRestart}>Restart</button>
               </Grid>
           </Grid>
