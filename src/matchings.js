@@ -108,7 +108,7 @@ export const topping = [
 { id: '17',
   name: 'Pepperoni',
   image: 'topping1.jpg',
-  text: 'Everybody enjoy good animated movies, just like pepperoni:',
+  text: 'Everybody enjoys good animated movies, just like pepperoni:',
   attributes: '&with_genres=16',
 },
 { id: '18',
