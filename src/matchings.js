@@ -157,7 +157,7 @@ export const topping = [
   name: 'Pineapple',
   image: 'topping9.jpg',
   text: 'Hmm, pineapple on pizza. Seems like you wanna start a war:',
-  attributes: '&with_genres=29',
+  attributes: '&with_genres=10752',
 },
 { id: '26',
   name: 'Spinach',
