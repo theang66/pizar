@@ -4,8 +4,8 @@ import Grid from '@material-ui/core/Grid';
 // Movie card to display a single movie
 const MovieCard = ({ title, release_date, poster_path, overview, vote_average }) => {
   return (
-    <Grid container className="tc" alignItems="center"
-          justify="center" spacing={0} style={{padding: 0}}>
+    <Grid container className="tc pt3 pb3" alignItems="center"
+          justify="center">
       <Grid item xs={12} sm={6} lg={4} xl={3}>
         <img alt="poster" src={`https://image.tmdb.org/t/p/w300${poster_path}`}/>
       </Grid>

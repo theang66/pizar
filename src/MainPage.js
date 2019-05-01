@@ -139,7 +139,11 @@ class MainPage extends Component {
     } else { // Results page, show movies one by one
       return (
         <div className="tc">
-          <h3>{rationale}</h3>
+          <Grid container alignItems="center" justify="center" className="bg-dark-red">
+            <Grid item xs={8}>
+              <h3>{rationale}</h3>
+            </Grid>
+          </Grid>
           <MovieList movies={items} movieIndex={movieIndex}/>
           <Grid container spacing={0} style={{padding: 0}}
           alignItems="center"
