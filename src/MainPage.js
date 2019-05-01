@@ -28,6 +28,7 @@ class MainPage extends Component {
       queryStep: '',
       rationale: '',
       rationaleStep: '',
+      chosen: ''
     };
   }
 
@@ -77,10 +78,11 @@ class MainPage extends Component {
   }
 
   // Retrieves the option the user chose to add to query
-  handleClick = (attributes, text) => (e) => {
+  handleClick = (attributes, text, id) => (e) => {
     this.setState({
       queryStep: attributes,
-      rationaleStep: text
+      rationaleStep: text,
+      chosen: id
     });
   }
 
@@ -90,7 +92,7 @@ class MainPage extends Component {
   }
 
   render() {
-    const { isLoaded, items, step, movieIndex, bread, sauce, topping, rationale } = this.state;
+    const { isLoaded, items, step, movieIndex, bread, sauce, topping, rationale, chosen } = this.state;
 
     // One question/step for each topping
     const pizzaSteps = [
@@ -115,7 +117,7 @@ class MainPage extends Component {
       return (
         <div className="tc">
           <h1>SELECT YOUR {currentStep.ingredientName}</h1>
-          <OptionList type={currentStep.ingredientOptions} handleClick={this.handleClick}/>
+          <OptionList chosen={chosen} type={currentStep.ingredientOptions} handleClick={this.handleClick}/>
           <button
             className="f3 fw6 br-pill grow link ph3 pv2 mb2 dib white bg-dark-red"
             onClick={this.onNextButton}>{nextButtonLabel}</button>
