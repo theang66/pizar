@@ -47,6 +47,11 @@ class MainPage extends Component {
 
       // If it is the last step, send a request to the API
       if(this.state.step === 3) {
+        if(this.state.query.length === 0) {
+          this.setState({
+            rationale: noChoice
+          })
+        }
         fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}${this.state.query}`)
           .then(res => res.json())
           .then(json => {
@@ -130,7 +135,7 @@ class MainPage extends Component {
     } else if(items.length === 0) { // Handles when there are no results
       return (
         <div className="tc">
-          <h1>We could not find any :(</h1>
+          <h1>We could not find any movies :( Try again?</h1>
           <button
           className="f3 br-pill fw6 grow link ph3 pv2 mb2 dib white bg-dark-red"
           onClick={this.onRestart}>Restart</button>
@@ -141,7 +146,7 @@ class MainPage extends Component {
         <div className="tc">
           <Grid container alignItems="center" justify="center" className="bg-dark-red">
             <Grid item xs={8}>
-              <h3>{rationale}</h3>
+              <h2>{rationale}</h2>
             </Grid>
           </Grid>
           <MovieList movies={items} movieIndex={movieIndex}/>

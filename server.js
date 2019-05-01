@@ -1,4 +1,5 @@
-//server.js
+// server.js
+// https://medium.com/jeremy-gottfrieds-tech-blog/tutorial-how-to-deploy-a-production-react-app-to-heroku-c4831dfcfa08
 
 const express = require('express');
 const favicon = require('express-favicon');
