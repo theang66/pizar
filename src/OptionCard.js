@@ -8,7 +8,7 @@ const OptionCard = ({ onClick, image, name, attributes, text, style }) => {
       onClick={onClick}
       attributes={attributes}
       text={text}
-      className="tc f4 hover-bg-dark-red bg-near-white dib br1 pa2 ma1 grow shadow-5"
+      className="tc f4 bg-near-white dib br1 pa2 ma1 grow shadow-5"
     >
       <img
         alt="options"
