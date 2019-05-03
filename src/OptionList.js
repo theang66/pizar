@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import OptionCard from "./OptionCard";
+import Grid from "@material-ui/core/Grid";
 
 // Display options in 2x2 grid
 class OptionList extends Component {
@@ -27,18 +28,26 @@ class OptionList extends Component {
   render() {
     return (
       <div>
-        <div class="container">
-          <div class="row justify-content-md-center">
-            <div class="col-sm-8">
-              <div class="row">
-                <div class="col-lg-6 col-md-12">{this.optionCard(0)}</div>
-                <div class="col-lg-6 col-md-12">{this.optionCard(1)}</div>
-                <div class="col-lg-6 col-md-12">{this.optionCard(2)}</div>
-                <div class="col-lg-6 col-md-12">{this.optionCard(3)}</div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Grid
+          container
+          spacing={0}
+          style={{ padding: 0 }}
+          alignItems="center"
+          justify="center"
+        >
+          {this.optionCard(0)}
+          {this.optionCard(1)}
+        </Grid>
+        <Grid
+          container
+          spacing={0}
+          style={{ padding: 0 }}
+          alignItems="center"
+          justify="center"
+        >
+          {this.optionCard(2)}
+          {this.optionCard(3)}
+        </Grid>
       </div>
     );
   }
