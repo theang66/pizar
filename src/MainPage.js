@@ -4,13 +4,8 @@ import OptionList from './OptionList';
 import { bread, sauce, topping, noChoice } from './matchings';
 import { shuffle } from "lodash";
 import Grid from '@material-ui/core/Grid';
-import styled from 'styled-components';
 
 const API_KEY = "a86fd5baa6696154f7d8e19d4c5d2689";
-
-const transNavBar = styled.nav`
-  background-color: transparent;
-`;
 
 class MainPage extends Component {
 
@@ -128,13 +123,13 @@ class MainPage extends Component {
         <div className="tc">
           <h1>SELECT YOUR {currentStep.ingredientName}</h1>
           <OptionList chosen={chosen} type={currentStep.ingredientOptions} handleClick={this.handleClick}/>
-          <transNavBar class="navbar navbar-expand-lg fixed-bottom d-flex justify-content-end">
+          <div className="navbar navbar-expand-lg fixed-bottom d-flex justify-content-end">
             <button
               className="f3 fw6 br-pill grow ph3 pv2 mb2 dib white bg-dark-red"
               style={{outline:"none"}}
               onClick={this.onNextButton}>{nextButtonLabel}
             </button>
-          </transNavBar>
+          </div>
         </div>
       );
     }
