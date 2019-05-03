@@ -33,14 +33,14 @@
 }
 
 @font-face {
-  font-family:'LATO MEDIUM';
+  font-family: "LATO MEDIUM";
   font-style: normal;
   font-weight: normal;
-  src: local('LATO MEDIUM'), url('./Lato-Medium.ttf') format('truetype');
+  src: local("LATO MEDIUM"), url("./Lato-Medium.ttf") format("truetype");
 }
 
 body {
-  background-image: url('./pics/mainpagebg.jpg');
+  background-image: url("./pics/mainpagebg.jpg");
   background-size: cover;
   position: relative;
 }
@@ -48,7 +48,7 @@ body {
 div {
   text-align: center;
   color: white;
-  font-family: 'LATO MEDIUM';
+  font-family: "LATO MEDIUM";
 }
 
 .disabled {
@@ -64,7 +64,7 @@ div {
 }
 
 .nextButton span:after {
-  content: '\00bb';
+  content: "\00bb";
   position: absolute;
   opacity: 0;
   top: 0;
@@ -89,7 +89,7 @@ div {
 }
 
 .prevButton span:after {
-  content: '\00ab';
+  content: "\00ab";
   position: absolute;
   opacity: 0;
   top: 0;
@@ -106,9 +106,6 @@ div {
   left: 0;
 }
 
-.container {
-  position: relative;
-}
 .text-block {
   position: absolute;
   bottom: 20px;

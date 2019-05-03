@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const FrontPage = ({ onStartButton }) => {
   return (
@@ -10,10 +10,15 @@ const FrontPage = ({ onStartButton }) => {
       <h2 className="tc f3 fw4">
         They might not seem related, but they really are.
       </h2>
-      <img className="tc grow" alt="options" src={require(`./pics/roundpizza.png`)}
-      width="300px" onClick={onStartButton}/>
+      <img
+        className="tc grow"
+        alt="options"
+        src={require(`./pics/roundpizza.png`)}
+        width="300px"
+        onClick={onStartButton}
+      />
     </div>
-  )
-}
+  );
+};
 
 export default FrontPage;
