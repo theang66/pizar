@@ -11,7 +11,7 @@ const OptionCard = ({ onClick, image, name, attributes, text, style }) => {
       className="tc f4 bg-near-white dib br1 pa2 ma1 grow shadow-5"
     >
       <img
-        alt="options"
+        alt="option"
         src={require(`./pics/${image}`)}
         height="250px"
         width="350px"

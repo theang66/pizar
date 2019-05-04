@@ -100,16 +100,16 @@ export const sauce = [
   },
   {
     id: "13",
-    name: "Hummus",
+    name: "Buffalo",
     image: "sauce5.jpg",
-    text: "It takes time to make good hummus, like quite a while.",
+    text: "It takes time to make good buffalo sauce, like quite a while.",
     attributes: "&with_runtime.gte=240"
   },
   {
     id: "14",
-    name: "Pumpkin",
+    name: "Creamy ranch",
     image: "sauce6.jpg",
-    text: "Pumpkin sauce is quick and easy.",
+    text: "Creamy ranch is quick and easy.",
     attributes: "&with_runtime.gte=30&with_runtime.lte=45"
   },
   {

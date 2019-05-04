@@ -12,7 +12,7 @@ const FrontPage = ({ onStartButton }) => {
       </h2>
       <img
         className="tc grow"
-        alt="options"
+        alt="start"
         src={require(`./pics/roundpizza.png`)}
         width="300px"
         onClick={onStartButton}

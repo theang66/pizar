@@ -101,6 +101,30 @@ class MainPage extends Component {
     this.setState(this.randomStartState());
   };
 
+  restartButton = () => {
+    return (
+      <button
+        className="f3 br-pill fw6 grow ph3 pv2 mb2 dib white bg-dark-red"
+        style={{ outline: "none" }}
+        onClick={this.onRestart}
+      >
+        Restart
+      </button>
+    );
+  };
+
+  prevNextButton = (label, style, action) => {
+    return (
+      <button
+        className={`tc f3 br-pill fw6 grow ph3 pv2 mb2 dib white bg-dark-red ${style}`}
+        style={{ outline: "none" }}
+        onClick={action}
+      >
+        <span>{label}</span>
+      </button>
+    );
+  };
+
   render() {
     const {
       isLoaded,
@@ -172,13 +196,7 @@ class MainPage extends Component {
             Oops! Your pizza seems odd. We could not find any movies :( Try
             again?
           </h1>
-          <button
-            className="f3 br-pill fw6 grow ph3 pv2 mb2 dib white bg-dark-red"
-            style={{ outline: "none" }}
-            onClick={this.onRestart}
-          >
-            Restart
-          </button>
+          {this.restartButton()}
         </div>
       );
     } else {
@@ -204,51 +222,33 @@ class MainPage extends Component {
             justify="center"
           >
             <Grid item xs={6} sm={6} lg={6} xl={6}>
-              {this.state.movieIndex === 0 ? (
-                <button
-                  className="tc f3 br-pill fw6 grow ph3 pv2 mb2 dib white bg-dark-red disabled"
-                  style={{ outline: "none" }}
-                  onClick={this.onPrevMovie}
-                >
-                  Previous Result
-                </button>
-              ) : (
-                <button
-                  className="tc f3 br-pill fw6 grow ph3 pv2 mb2 dib white bg-dark-red prevButton"
-                  style={{ outline: "none" }}
-                  onClick={this.onPrevMovie}
-                >
-                  <span>Previous Result</span>
-                </button>
-              )}
+              {movieIndex === 0
+                ? this.prevNextButton(
+                    "Previous Result",
+                    "disabled",
+                    this.onPrevMovie
+                  )
+                : this.prevNextButton(
+                    "Previous Result",
+                    "prevButton",
+                    this.onPrevMovie
+                  )}
             </Grid>
             <Grid item xs={6} sm={6} lg={6} xl={6}>
-              {this.state.movieIndex === this.state.items.length - 1 ? (
-                <button
-                  className="tc f3 br-pill fw6 grow ph3 pv2 mb2 dib white bg-dark-red disabled"
-                  style={{ outline: "none" }}
-                  onClick={this.onNextMovie}
-                >
-                  Next Result
-                </button>
-              ) : (
-                <button
-                  className="tc f3 br-pill fw6 grow ph3 pv2 mb2 dib white bg-dark-red nextButton"
-                  style={{ outline: "none" }}
-                  onClick={this.onNextMovie}
-                >
-                  <span>Next Result</span>
-                </button>
-              )}
+              {movieIndex === items.length - 1
+                ? this.prevNextButton(
+                    "Next Result",
+                    "disabled",
+                    this.onNextMovie
+                  )
+                : this.prevNextButton(
+                    "Next Result",
+                    "nextButton",
+                    this.onNextMovie
+                  )}
             </Grid>
             <Grid item xs={6} sm={6} lg={6} xl={6}>
-              <button
-                className="tr f3 br-pill fw6 grow ph3 pv2 mb2 dib white bg-dark-red"
-                style={{ outline: "none" }}
-                onClick={this.onRestart}
-              >
-                Restart
-              </button>
+              {this.restartButton()}
             </Grid>
           </Grid>
         </div>
