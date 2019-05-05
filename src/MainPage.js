@@ -4,6 +4,8 @@ import OptionList from "./OptionList";
 import { bread, sauce, topping, noChoice } from "./matchings";
 import { shuffle } from "lodash";
 import Grid from "@material-ui/core/Grid";
+import Confetti from 'react-confetti';
+import ContainerDimensions from 'react-container-dimensions'
 
 const API_KEY = "a86fd5baa6696154f7d8e19d4c5d2689";
 
@@ -207,13 +209,17 @@ class MainPage extends Component {
             container
             alignItems="center"
             justify="center"
-            className="rationalebg"
           >
+            <ContainerDimensions>
+              {({width, height}) =>
+                <Confetti width={width} height={height} opacity={0.5}/>
+              }
+            </ContainerDimensions>
             <Grid item xs={1}>
               <img alt="popcorn" src={require(`./pics/popcorn.png`)} />
             </Grid>
-            <Grid item xs={8}>
-              <h2 className="white fw6 f4 pa3">{rationale}</h2>
+            <Grid item xs={10}>
+              <h2 className="baskerville dark-red fw3 f2 pa3">{rationale}</h2>
             </Grid>
             <Grid item xs={1}>
               <img alt="popcorn" src={require(`./pics/popcorn.png`)} />
