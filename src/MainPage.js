@@ -209,8 +209,18 @@ class MainPage extends Component {
             justify="center"
             className="rationalebg"
           >
+            <Grid item xs={1}>
+              <img
+                src ={require(`./pics/popcorn.png`)}
+              />
+            </Grid>
             <Grid item xs={8}>
               <h2 className="white fw6 f4 pa3">{rationale}</h2>
+            </Grid>
+            <Grid item xs={1}>
+              <img
+                src ={require(`./pics/popcorn.png`)}
+              />
             </Grid>
           </Grid>
           <MovieCard movie={items[movieIndex]} />
