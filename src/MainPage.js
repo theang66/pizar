@@ -205,7 +205,9 @@ class MainPage extends Component {
           <Grid container alignItems="center" justify="center">
             <ContainerDimensions>
               {({ width, height }) => (
-                <Confetti width={width} height={height} opacity={0.8} />
+                <Confetti width={width} height={height} opacity={0.8}
+                          numberOfPieces={1600} recycle={false}
+                          gravity={0.07} initalVelocityY={5}/>
               )}
             </ContainerDimensions>
             <Grid item xs={10}>
