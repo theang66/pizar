@@ -219,7 +219,9 @@ class MainPage extends Component {
               <h2 className="dark-red fw4 f2 pa3">{rationale}</h2>
             </Grid>
           </Grid>
+
           <MovieCard movie={items[movieIndex]} />
+
           <Grid
             container
             spacing={0}
