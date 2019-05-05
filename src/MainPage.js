@@ -115,7 +115,7 @@ class MainPage extends Component {
     );
   };
 
-  prevNextButton = (label, style, action) => {
+  makeButton = (label, style, action) => {
     return (
       <button
         className={`tc f3 br-pill fw6 grow ph3 pv2 mb2 dib white bg-dark-red ${style}`}
@@ -137,7 +137,8 @@ class MainPage extends Component {
       sauce,
       topping,
       rationale,
-      chosen
+      chosen,
+      queryStep
     } = this.state;
 
     // One question/step for each topping
@@ -161,28 +162,24 @@ class MainPage extends Component {
 
     // At the last step, say Randomize instead of Next
     if (step === pizzaSteps.length - 1) {
-      nextButtonLabel = "Randomize!";
+      nextButtonLabel = "Get Movies!";
     }
 
     // At each step, display instruction and options
     if (currentStep) {
       return (
         <div className="tc">
-          <h2 className="pa2 gray">Step {step + 1} of 3</h2>
-          <h1>SELECT YOUR {currentStep.ingredientName}</h1>
+          <h1 className="gray ma1">Step {step + 1} of 3</h1>
+          <h1 className="pa0 ma1">SELECT YOUR {currentStep.ingredientName}</h1>
           <OptionList
             chosen={chosen}
             type={currentStep.ingredientOptions}
             handleClick={this.handleClick}
           />
 
-          <button
-            className="f3 fw6 br-pill grow ph3 pv2 mb2 dib white bg-dark-red"
-            style={{ outline: "none" }}
-            onClick={this.onNextButton}
-          >
-            {nextButtonLabel}
-          </button>
+          {queryStep === ""
+            ? this.makeButton(nextButtonLabel, "disabled ma2")
+            : this.makeButton(nextButtonLabel, "ma2", this.onNextButton)}
         </div>
       );
     }
@@ -225,12 +222,8 @@ class MainPage extends Component {
           >
             <Grid item xs={6} sm={6} lg={6} xl={6}>
               {movieIndex === 0
-                ? this.prevNextButton(
-                    "Previous Result",
-                    "disabled",
-                    this.onPrevMovie
-                  )
-                : this.prevNextButton(
+                ? this.makeButton("Previous Result", "disabled")
+                : this.makeButton(
                     "Previous Result",
                     "prevButton",
                     this.onPrevMovie
@@ -238,12 +231,8 @@ class MainPage extends Component {
             </Grid>
             <Grid item xs={6} sm={6} lg={6} xl={6}>
               {movieIndex === items.length - 1
-                ? this.prevNextButton(
-                    "Next Result",
-                    "disabled",
-                    this.onNextMovie
-                  )
-                : this.prevNextButton(
+                ? this.makeButton("Next Result", "disabled")
+                : this.makeButton(
                     "Next Result",
                     "nextButton",
                     this.onNextMovie
