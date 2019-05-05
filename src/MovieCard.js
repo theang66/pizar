@@ -22,7 +22,7 @@ const MovieCard = ({ movie }) => {
       </Grid>
       <Grid item className="tl" xs={12} sm={12} lg={4} xl={3}>
         <h2 className="f2">{movie.title}</h2>
-        <p className="f3">
+        <p className="f4 gray">
           {new Date(movie.release_date).getFullYear()} | {movie.vote_average}/10
           | {genresString}
         </p>
