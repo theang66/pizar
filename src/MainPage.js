@@ -4,8 +4,8 @@ import OptionList from "./OptionList";
 import { bread, sauce, topping, noChoice } from "./matchings";
 import { shuffle } from "lodash";
 import Grid from "@material-ui/core/Grid";
-import Confetti from 'react-confetti';
-import ContainerDimensions from 'react-container-dimensions'
+import Confetti from "react-confetti";
+import ContainerDimensions from "react-container-dimensions";
 
 const API_KEY = "a86fd5baa6696154f7d8e19d4c5d2689";
 
@@ -168,21 +168,21 @@ class MainPage extends Component {
     if (currentStep) {
       return (
         <div className="tc">
+          <h2 className="pa2 gray">Step {step + 1} of 3</h2>
           <h1>SELECT YOUR {currentStep.ingredientName}</h1>
           <OptionList
             chosen={chosen}
             type={currentStep.ingredientOptions}
             handleClick={this.handleClick}
           />
-          <div className="navbar fixed-bottom justify-content-end">
-            <button
-              className="f3 fw6 br-pill grow ph3 pv2 mb2 dib white bg-dark-red"
-              style={{ outline: "none" }}
-              onClick={this.onNextButton}
-            >
-              {nextButtonLabel}
-            </button>
-          </div>
+
+          <button
+            className="f3 fw6 br-pill grow ph3 pv2 mb2 dib white bg-dark-red"
+            style={{ outline: "none" }}
+            onClick={this.onNextButton}
+          >
+            {nextButtonLabel}
+          </button>
         </div>
       );
     }
@@ -205,24 +205,14 @@ class MainPage extends Component {
       // Results page, show movies one by one
       return (
         <div className="tc">
-          <Grid
-            container
-            alignItems="center"
-            justify="center"
-          >
+          <Grid container alignItems="center" justify="center">
             <ContainerDimensions>
-              {({width, height}) =>
-                <Confetti width={width} height={height} opacity={0.5}/>
-              }
+              {({ width, height }) => (
+                <Confetti width={width} height={height} opacity={0.8} />
+              )}
             </ContainerDimensions>
-            <Grid item xs={1}>
-              <img alt="popcorn" src={require(`./pics/popcorn.png`)} />
-            </Grid>
             <Grid item xs={10}>
-              <h2 className="baskerville dark-red fw3 f2 pa3">{rationale}</h2>
-            </Grid>
-            <Grid item xs={1}>
-              <img alt="popcorn" src={require(`./pics/popcorn.png`)} />
+              <h2 className="dark-red fw4 f2 pa3">{rationale}</h2>
             </Grid>
           </Grid>
           <MovieCard movie={items[movieIndex]} />
