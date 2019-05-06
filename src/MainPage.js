@@ -214,32 +214,34 @@ class MainPage extends Component {
               <h2 className="dark-red fw4 f2 pa3">{rationale}</h2>
             </Grid>
           </Grid>
-          <MovieCard movie={items[movieIndex]} />
-          <Grid
-            container
-            spacing={0}
-            style={{ padding: 0 }}
-            alignItems="center"
-            justify="center"
-          >
-            <Grid item xs={6} sm={6} lg={6} xl={6}>
+          <Grid container alignItems="center" justify="center">
+            <Grid item xs={1} sm={1} lg={1} xl={1} className="center">
               {movieIndex === 0
-                ? this.makeButton("Previous Result", "disabled")
+                ? this.makeButton(<i class="left"></i>, "o-0")
                 : this.makeButton(
-                    "Previous Result",
-                    "prevButton",
+                    <i class="left"></i>,
+                    "",
                     this.onPrevMovie
                   )}
             </Grid>
-            <Grid item xs={6} sm={6} lg={6} xl={6}>
+            <Grid item xs={10} spacing={0} style={{ padding: 0 }}>
+              <MovieCard movie={items[movieIndex]} />
+            </Grid>
+            <Grid item xs={1} sm={1} lg={1} xl={1} className="center">
               {movieIndex === items.length - 1
-                ? this.makeButton("Next Result", "disabled")
+                ? this.makeButton(<i class="right"></i>, "o-0")
                 : this.makeButton(
-                    "Next Result",
-                    "nextButton",
+                    <i class="right"></i>,
+                    "",
                     this.onNextMovie
                   )}
             </Grid>
+          </Grid>
+          <Grid
+            container
+            alignItems="center"
+            justify="center"
+          >
             <Grid item xs={6} sm={6} lg={6} xl={6}>
               {this.restartButton()}
             </Grid>
