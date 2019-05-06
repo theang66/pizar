@@ -103,14 +103,14 @@ export const sauce = [
     name: "Buffalo",
     image: "sauce5.jpg",
     text: "It takes time to make good buffalo sauce, like quite a while.",
-    attributes: "&with_runtime.gte=240"
+    attributes: "&with_runtime.gte=120"
   },
   {
     id: "14",
     name: "Creamy ranch",
     image: "sauce6.jpg",
     text: "Creamy ranch is quick and easy.",
-    attributes: "&with_runtime.gte=30&with_runtime.lte=45"
+    attributes: "&with_runtime.gte=60&with_runtime.lte=75"
   },
   {
     id: "15",
