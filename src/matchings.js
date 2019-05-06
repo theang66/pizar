@@ -10,7 +10,7 @@ export const bread = [
     image: "bread1.jpg",
     text: "Hello, New York!",
     attributes:
-      "&primary_release_date.gte=2017-01-01&primary_release_date.lte=2019-01-01"
+      "&primary_release_date.gte=2017-01-01"
   },
   {
     id: "2",
@@ -117,7 +117,7 @@ export const sauce = [
     name: "Marinara",
     image: "sauce7.jpg",
     text: "Want some safe choices huh?",
-    attributes: "&sort_by=vote_average.desc&vote_count.gte=2000"
+    attributes: "&sort_by=vote_average.desc&vote_count.gte=200"
   },
   {
     id: "16",
