@@ -116,3 +116,7 @@ div {
   padding-right: 20px;
   padding-top: 10px;
 }
+
+.rationalebg {
+  background-color: rgb(255, 0, 0, 0.9);
+}
