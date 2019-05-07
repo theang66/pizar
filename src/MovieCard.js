@@ -14,15 +14,15 @@ const MovieCard = ({ movie }) => {
 
   return (
     <Grid container className="tc pt3 pb3" alignItems="center" justify="center">
-      <Grid item xs={12} sm={6} lg={4} xl={3}>
+      <Grid item className="tc" xs={12} sm={5}>
         <img
           alt="poster"
           src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
         />
       </Grid>
-      <Grid item className="tl" xs={12} sm={12} lg={4} xl={3}>
+      <Grid item className="tl pl1" xs={12} sm={7}>
         <h2 className="f2">{movie.title}</h2>
-        <p className="f4 gray">
+        <p className="f4 light-silver">
           {new Date(movie.release_date).getFullYear()} | {movie.vote_average}/10
           | {genresString}
         </p>
