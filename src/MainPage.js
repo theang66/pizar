@@ -222,8 +222,8 @@ class MainPage extends Component {
           <Grid container alignItems="center" justify="center">
             <Grid item xs={1} sm={1} lg={1} xl={1} className="center">
               {movieIndex === 0
-                ? this.makeButton(<i className="left" />, "o-0")
-                : this.makeButton(<i className="left" />, "", this.onPrevMovie)}
+                ? this.makeButton(<i className="fas fa-arrow-left"></i>, "o-0")
+                : this.makeButton(<i className="fas fa-arrow-left"></i>, "", this.onPrevMovie)}
             </Grid>
 
             <Grid item xs={10} style={{ padding: 0 }}>
@@ -232,8 +232,8 @@ class MainPage extends Component {
 
             <Grid item xs={1} sm={1} lg={1} xl={1} className="center">
               {movieIndex === items.length - 1
-                ? this.makeButton(<i className="right" />, "o-0")
-                : this.makeButton(<i className="right" />, "", this.onNextMovie)}
+                ? this.makeButton(<i className="fas fa-arrow-right"></i>, "o-0")
+                : this.makeButton(<i className="fas fa-arrow-right"></i>, "", this.onNextMovie)}
             </Grid>
           </Grid>
           <Grid container alignItems="center" justify="center">
