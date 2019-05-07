@@ -13,6 +13,8 @@
     "react-container-dimensions": "^1.4.1",
     "react-dom": "^16.8.6",
     "react-scripts": "2.1.8",
+    "react-slick": "^0.24.0",
+    "slick-carousel": "^1.8.1",
     "tachyons": "^4.11.1"
   },
   "scripts": {

@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import MovieCard from "./MovieCard";
+
 import OptionList from "./OptionList";
 import { bread, sauce, topping, noChoice } from "./matchings";
 import { shuffle } from "lodash";
 import Grid from "@material-ui/core/Grid";
 import Confetti from "react-confetti";
 import ContainerDimensions from "react-container-dimensions";
+import MovieSlider from "./MovieSlider";
 
 const API_KEY = "a86fd5baa6696154f7d8e19d4c5d2689";
 
@@ -220,20 +221,8 @@ class MainPage extends Component {
             </Grid>
           </Grid>
           <Grid container alignItems="center" justify="center">
-            <Grid item xs sm={1} lg={1} xl={1} className="center">
-              {movieIndex === 0
-                ? this.makeButton(<i className="fas fa-arrow-left"></i>, "o-0")
-                : this.makeButton(<i className="fas fa-arrow-left"></i>, "", this.onPrevMovie)}
-            </Grid>
-
             <Grid item xs={8} style={{ padding: 0 }}>
-              <MovieCard movie={items[movieIndex]} />
-            </Grid>
-
-            <Grid item xs sm={1} lg={1} xl={1} className="center">
-              {movieIndex === items.length - 1
-                ? this.makeButton(<i className="fas fa-arrow-right"></i>, "o-0")
-                : this.makeButton(<i className="fas fa-arrow-right"></i>, "", this.onNextMovie)}
+              <MovieSlider movies={items} />
             </Grid>
           </Grid>
           <Grid container alignItems="center" justify="center">
