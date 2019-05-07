@@ -220,17 +220,17 @@ class MainPage extends Component {
             </Grid>
           </Grid>
           <Grid container alignItems="center" justify="center">
-            <Grid item xs={1} sm={1} lg={1} xl={1} className="center">
+            <Grid item xs sm={1} lg={1} xl={1} className="center">
               {movieIndex === 0
                 ? this.makeButton(<i className="fas fa-arrow-left"></i>, "o-0")
                 : this.makeButton(<i className="fas fa-arrow-left"></i>, "", this.onPrevMovie)}
             </Grid>
 
-            <Grid item xs={10} style={{ padding: 0 }}>
+            <Grid item xs={8} style={{ padding: 0 }}>
               <MovieCard movie={items[movieIndex]} />
             </Grid>
 
-            <Grid item xs={1} sm={1} lg={1} xl={1} className="center">
+            <Grid item xs sm={1} lg={1} xl={1} className="center">
               {movieIndex === items.length - 1
                 ? this.makeButton(<i className="fas fa-arrow-right"></i>, "o-0")
                 : this.makeButton(<i className="fas fa-arrow-right"></i>, "", this.onNextMovie)}

@@ -20,7 +20,7 @@ const MovieCard = ({ movie }) => {
           src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
         />
       </Grid>
-      <Grid item className="tl pl1" xs={12} sm={7}>
+      <Grid item className="tl pl2" xs={12} sm={7}>
         <h2 className="f2">{movie.title}</h2>
         <p className="f4 light-silver">
           {new Date(movie.release_date).getFullYear()} | {movie.vote_average}/10
