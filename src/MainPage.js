@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import OptionList from "./OptionList";
 import { bread, sauce, topping, noChoice } from "./matchings";
 import { shuffle } from "lodash";

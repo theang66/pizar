@@ -1,36 +1,40 @@
 import React, { Component } from "react";
-import Slider from 'react-slick';
+import Slider from "react-slick";
 import MovieCard from "./MovieCard";
 
 function NextButton(props) {
-  const { style, onClick } = props;
+  const { onClick } = props;
   return (
     <button
-      className={`tc nextArrow f3 br-pill fw6 grow ph3 pv2 mb2 dib white bg-dark-red ${style}`}
+      className={`tc nextArrow f3 br-pill fw6 grow ph3 pv2 mb2 dib white bg-dark-red`}
       style={{ outline: "none" }}
-      onClick ={onClick}
+      onClick={onClick}
     >
-      <span><i className="fas fa-arrow-right"></i></span>
+      <span>
+        <i className="fas fa-arrow-right" />
+      </span>
     </button>
   );
 }
 
 function PrevButton(props) {
-  const { style, onClick } = props;
+  const { onClick } = props;
   return (
     <button
-      className={`tc prevArrow f3 br-pill fw6 grow ph3 pv2 mb2 dib white bg-dark-red ${style}`}
+      className={`tc prevArrow f3 br-pill fw6 grow ph3 pv2 mb2 dib white bg-dark-red`}
       style={{ outline: "none" }}
-      onClick ={onClick}
+      onClick={onClick}
     >
-      <span><i className="fas fa-arrow-left"></i></span>
+      <span>
+        <i className="fas fa-arrow-left" />
+      </span>
     </button>
   );
 }
 
 export default class MovieSlider extends Component {
   render() {
-    var settings = {
+    let settings = {
       className: "",
       dots: true,
       infinite: true,
@@ -39,25 +43,18 @@ export default class MovieSlider extends Component {
       nextArrow: <NextButton />,
       prevArrow: <PrevButton />,
       adaptiveHeight: true,
-      VariableWidth: false
+      variableWidth: false
     };
     return (
-      <div>
-        <Slider {...settings}>
-          <div>
-            <MovieCard movie={this.props.movies[0]} />
-          </div>
-          <div>
-            <MovieCard movie={this.props.movies[1]} />
-          </div>
-          <div>
-            <MovieCard movie={this.props.movies[2]} />
-          </div>
-          <div>
-            <MovieCard movie={this.props.movies[3]} />
-          </div>
-        </Slider>
-      </div>
+      <Slider {...settings}>
+        {this.props.movies.map(movie => {
+          return (
+            <div key={movie.id}>
+              <MovieCard key={movie.id} movie={movie} />
+            </div>
+          );
+        })}
+      </Slider>
     );
   }
 }

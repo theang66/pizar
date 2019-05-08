@@ -9,8 +9,7 @@ export const bread = [
     name: "New York/New Jersey",
     image: "bread1.jpg",
     text: "Hello, New York!",
-    attributes:
-      "&primary_release_date.gte=2017-01-01"
+    attributes: "&primary_release_date.gte=2017-01-01"
   },
   {
     id: "2",

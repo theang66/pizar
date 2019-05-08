@@ -117,13 +117,13 @@ div {
   padding-top: 10px;
 }
 
-.nextArrow{
+.nextArrow {
   position: absolute;
   top: 50%;
   left: 101%;
 }
 
-.prevArrow{
+.prevArrow {
   position: absolute;
   top: 50%;
   right: 101%;
