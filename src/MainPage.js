@@ -133,7 +133,6 @@ class MainPage extends Component {
       isLoaded,
       items,
       step,
-      movieIndex,
       bread,
       sauce,
       topping,
