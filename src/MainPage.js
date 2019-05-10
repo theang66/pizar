@@ -198,7 +198,7 @@ class MainPage extends Component {
         </div>
       );
     } else {
-      // Results page, show movies one by one
+      // Results page, show movies one by one with the slider
       return (
         <div className="tc">
           <Grid container alignItems="center" justify="center">

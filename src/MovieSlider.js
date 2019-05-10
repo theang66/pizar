@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
 import MovieCard from "./MovieCard";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
+// Change the design of the next arrow
 function NextButton(props) {
   const { onClick } = props;
   return (
@@ -17,6 +20,7 @@ function NextButton(props) {
   );
 }
 
+// Change the design of the previous arrow
 function PrevButton(props) {
   const { onClick } = props;
   return (
@@ -32,6 +36,7 @@ function PrevButton(props) {
   );
 }
 
+// Movie Slider that implements the carousel design for movies in result page
 export default class MovieSlider extends Component {
   render() {
     let settings = {
