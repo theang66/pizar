@@ -1,5 +1,7 @@
 import React from "react";
 
+/* This class displays greeting messages and the button to start the quiz. */
+
 const FrontPage = ({ onStartButton }) => {
   return (
     <div>

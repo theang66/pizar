@@ -1,4 +1,4 @@
-// Movie genre ids and names
+// Movie genre ids and names, used to display genres of movies in result page.
 
 export const genres = {
   28: "Action",

@@ -2,7 +2,8 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 import { genres } from "./genres";
 
-// Movie card to display a single movie
+/* This class represents a movie card to display a single movie in the result page. */
+
 const MovieCard = ({ movie }) => {
   const genresArray = movie.genre_ids;
   const genresString = genresArray.reduce((genresString, genreID, i) => {

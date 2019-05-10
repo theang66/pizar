@@ -1,7 +1,4 @@
-// Database for toppings' attributes
-
-export const noChoice =
-  "Seems like you couldn't make up your mind. No worries, we got you! Here are some great movies:";
+// Matching system for pizza options.
 
 export const bread = [
   {

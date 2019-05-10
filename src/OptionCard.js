@@ -1,6 +1,7 @@
 import React from "react";
 
-// Option card to display a single option
+/* This class represents an option card to display a single option. */
+
 const OptionCard = ({ onClick, image, name, attributes, text, style }) => {
   return (
     <div

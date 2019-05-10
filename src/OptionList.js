@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import OptionCard from "./OptionCard";
 import Grid from "@material-ui/core/Grid";
 
-// Display options in 2x2 grid
+/* This class displays the options for each question in a 2x2 grid. */
+
 class OptionList extends Component {
   optionCard = i => {
     const shuffledOptions = this.props.type.slice(0, 4);

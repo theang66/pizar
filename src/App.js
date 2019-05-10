@@ -3,6 +3,8 @@ import "./App.css";
 import FrontPage from "./FrontPage";
 import MainPage from "./MainPage";
 
+/* App displays the FrontPage first and navigates to MainPage when start button is clicked. */
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -16,7 +18,6 @@ class App extends Component {
   };
 
   render() {
-    // Navigates to main page when button is clicked
     const { isFrontPage } = this.state;
     if (!isFrontPage) {
       return (

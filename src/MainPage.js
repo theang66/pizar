@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import OptionList from "./OptionList";
-import { bread, sauce, topping, noChoice } from "./matchings";
+import { bread, sauce, topping } from "./matchings";
 import { shuffle } from "lodash";
 import Grid from "@material-ui/core/Grid";
 import Confetti from "react-confetti";
 import ContainerDimensions from "react-container-dimensions";
 import MovieSlider from "./MovieSlider";
+
+/* This class represents the main page, including the quiz pages and result page. */
 
 const API_KEY = "a86fd5baa6696154f7d8e19d4c5d2689";
 
@@ -34,7 +36,7 @@ class MainPage extends Component {
   }
 
   onNextButton = () => {
-    // Updates the state every time the user clicks Next
+    // Updates the state every time the user clicks Next in the quiz
     this.setState(
       state => {
         return {
@@ -50,11 +52,6 @@ class MainPage extends Component {
 
         // If it is the last step, send a request to the API
         if (this.state.step === 3) {
-          if (this.state.query.length === 0) {
-            this.setState({
-              rationale: noChoice
-            });
-          }
           fetch(
             `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}${
               this.state.query
@@ -72,23 +69,6 @@ class MainPage extends Component {
     );
   };
 
-  // Continues to next movie when clicked
-  onNextMovie = () => {
-    if (this.state.movieIndex === this.state.items.length - 1) {
-      // Does not do anything if it is the last movie
-    } else {
-      this.setState({ movieIndex: this.state.movieIndex + 1 });
-    }
-  };
-
-  onPrevMovie = () => {
-    if (this.state.movieIndex === 0) {
-      // Does not do anything if it is the first movie
-    } else {
-      this.setState({ movieIndex: this.state.movieIndex - 1 });
-    }
-  };
-
   // Retrieves the option the user chose to add to query
   handleClick = (attributes, text, id) => e => {
     this.setState({
@@ -103,6 +83,7 @@ class MainPage extends Component {
     this.setState(this.randomStartState());
   };
 
+  // Creates a restart button
   restartButton = () => {
     return (
       <button
@@ -115,6 +96,7 @@ class MainPage extends Component {
     );
   };
 
+  // Creates a customized button with the same format
   makeButton = (label, style, action) => {
     return (
       <button
@@ -159,7 +141,7 @@ class MainPage extends Component {
     let nextButtonLabel = "Next";
     let currentStep = pizzaSteps[step];
 
-    // At the last step, say Randomize instead of Next
+    // At the last step, say Get Movies! instead of Next
     if (step === pizzaSteps.length - 1) {
       nextButtonLabel = "Get Movies!";
     }
@@ -198,7 +180,7 @@ class MainPage extends Component {
         </div>
       );
     } else {
-      // Results page, show movies one by one with the slider
+      // Results page, shows the rationale at the top and movies one by one with the slider
       return (
         <div className="tc">
           <Grid container alignItems="center" justify="center">
