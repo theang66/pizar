@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
 import MovieCard from "./MovieCard";
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 // Changes the design of the next arrow
 function NextButton(props) {

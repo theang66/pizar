@@ -48,8 +48,6 @@ class MainPage extends Component {
         };
       },
       () => {
-        console.log(this.state.query);
-
         // If it is the last step, send a request to the API
         if (this.state.step === 3) {
           fetch(

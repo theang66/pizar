@@ -1,4 +1,4 @@
-// server.js
+// Server for deploying.
 // https://medium.com/jeremy-gottfrieds-tech-blog/tutorial-how-to-deploy-a-production-react-app-to-heroku-c4831dfcfa08
 
 const express = require("express");
