@@ -15,6 +15,7 @@ const FrontPage = ({ onStartButton }) => {
         They might not seem related, but they really are.
       </h2>
       <img
+        id="pizzaButton"
         className="tc grow animated tada"
         alt="start"
         src={require(`./pics/roundpizza.png`)}

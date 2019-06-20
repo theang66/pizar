@@ -78,3 +78,7 @@ div {
   top: 50%;
   right: 101%;
 }
+
+#pizzaButton:hover {
+  animation: bounce 0.5s;
+}
